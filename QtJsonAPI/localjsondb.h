@@ -1,5 +1,5 @@
-#ifndef JSONSTORAGE_H
-#define JSONSTORAGE_H
+#ifndef LOCALJSONDB_H
+#define LOCALJSONDB_H
 
 #include <QObject>                          //This class is the base class of all Qt objects.
 #include <QDebug>                           //Class that provides an output stream for debugging information.
@@ -11,15 +11,20 @@
 #include <QJsonObject>                      //Class that encapsulates a JSON object.
 #include <QJsonValue>                       //Class that encapsulates a value in JSON.
 
-class JsonStorage : public QObject
+class LocalJSONDB : public QObject
 {
     Q_OBJECT
 public:
-    explicit JsonStorage(QObject *parent = nullptr);
+    explicit LocalJSONDB(QString name = QString(), QString appDirPath = QString(), QObject *parent = nullptr);
+    ~LocalJSONDB();
 
 signals:
 
 public slots:
+
+private:
+    QFile *file;
+    QJsonArray root;
 };
 
-#endif // JSONSTORAGE_H
+#endif // LOCALJSONDB_H

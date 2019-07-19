@@ -1,8 +1,11 @@
 #include <QCoreApplication>
+#include "localjsondb.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QCoreApplication app(argc, argv);\
+    QString name("data");
+    LocalJSONDB db(name, app.applicationDirPath());
 
-    return a.exec();
+    return app.exec();
 }
