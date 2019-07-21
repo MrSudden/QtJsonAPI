@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);\
     QString name("data");
-    LocalJSONDB db(name, app.applicationDirPath());
+    LocalJSONDB db(name, &app);
 
     return app.exec();
 }

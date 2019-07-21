@@ -10,12 +10,13 @@
 #include <QJsonDocument>                    //Class that provides a way to read and write JSON documents.
 #include <QJsonObject>                      //Class that encapsulates a JSON object.
 #include <QJsonValue>                       //Class that encapsulates a value in JSON.
+#include <QCoreApplication>                 //Class that instantiates an application.
 
 class LocalJSONDB : public QObject
 {
     Q_OBJECT
 public:
-    explicit LocalJSONDB(QString name = QString(), QString appDirPath = QString(), QObject *parent = nullptr);
+    explicit LocalJSONDB(QString name = QString(), QCoreApplication *app = nullptr, QObject *parent = nullptr);
     ~LocalJSONDB();
 
 signals:
@@ -23,7 +24,8 @@ signals:
 public slots:
 
 private:
-    QFile *file;
+    QFile* file;
+    QCoreApplication* app;
     QJsonArray root;
 };
 

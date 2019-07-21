@@ -1,9 +1,10 @@
 #include "localjsondb.h"
 
-LocalJSONDB::LocalJSONDB(QString name, QString appDirPath, QObject *parent): QObject(parent),
-    file(new QFile())
+LocalJSONDB::LocalJSONDB(QString name, QCoreApplication* app, QObject *parent): QObject(parent),
+    file(new QFile()), app(app)
 {
     QDir mDir;
+    QString appDirPath(app->applicationDirPath());
     appDirPath += "/AppData";
     mDir.mkdir(appDirPath);
     mDir.cd(appDirPath);
