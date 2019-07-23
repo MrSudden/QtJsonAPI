@@ -3,9 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication app(argc, argv);\
-    QString name("data");
-    LocalJSONDB db(name, &app);
+    QCoreApplication app(argc, argv);
+    LocalJSONDB db("data", &app);
 
     return app.exec();
 }

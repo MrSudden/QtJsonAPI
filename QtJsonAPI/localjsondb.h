@@ -19,6 +19,8 @@ public:
     explicit LocalJSONDB(QString name = QString(), QCoreApplication *app = nullptr, QObject *parent = nullptr);
     ~LocalJSONDB();
 
+    QJsonValue ref(QString path = QString());
+
 signals:
 
 public slots:
